@@ -28,4 +28,6 @@ public class ItemRepository {
     public List<Item> findAll() {
         return em.createQuery("SELECT i FROM Item i", Item.class).getResultList();
     }
+
+
 }

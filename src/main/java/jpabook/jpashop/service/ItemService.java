@@ -24,8 +24,17 @@ public class ItemService {
         return itemRepository.findOne(id);
     }
 
-    public List<Item> findAll() {
+    public List<Item> findItems() {
         return itemRepository.findAll();
     }
 
+    /**
+     * 영속성 컨텍스트가 자동 변경
+     */
+    @Transactional
+    public void updateItem(Long id, String name, int price) {
+        Item item = itemRepository.findOne(id);
+        item.setName(name);
+        item.setPrice(price);
+    }
 }
